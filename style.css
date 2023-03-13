@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    list-style: none;
+    border: none;
+    outline: none;
+}
+body{
+    display: flex;
+    background: #1a9;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+/*Inicio menu */
+.container-options{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    position: absolute;
+    top: -200px;
+    left: 0;
+    border-radius: 20px;
+}
+.btn-save,.btn-start-game{
+    background: #0003;
+    color: #fff;
+}
+.btn-save:hover,.btn-start-game:hover{
+    background: #000;
+}
+.btn-save,.btn-start-game, #submit-number,.btn-again{
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+/*animation: aparecerOptions forwards .6s;*/
+.options-active{animation: aparecerOptions forwards .7s;}
+.options-desactive{animation: desaparecerOptions forwards .7s;}
+@keyframes aparecerOptions {
+    0%{
+        top: -200px;
+    }
+    100%{
+        box-shadow: 0 2px 10px 0 #0003;
+        top: 0px;
+    }
+}
+@keyframes desaparecerOptions {
+    0%{
+        top: 0;
+    }
+    100%{
+        box-shadow: none;
+        top: -200px;
+    }
+}
+.container-form{
+    flex-grow: 1;
+    height: 100%;
+}
+.options{
+    padding: 10px;
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-list-options{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-bottom: inset 2px;
+}
+.container-list-options label{
+    width: 40%;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+.container-list-options .list-options{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+.data-game{
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    transition: all .3s;
+}
+.select{
+    background: #d10f0f;
+}
+.btn-options{
+    position: absolute;
+    font-size: 1.8em;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.options .btn-save{
+    width: 30%;
+    font-size: 1.3em;
+    padding: 5px 0;
+}
+/*Fin menu*/
+
+/*Inicio del juego*/
+#main{
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 550px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px 10px #0003;
+    overflow: hidden;
+}
+.description{
+    font-size: 2.5em;
+    box-shadow: 0 5px 5px 0 #0003;
+}
+.btn-start-game{
+    font-size: 2em;
+    width: 35%;
+    height: 40px;
+}
+/*Fin del juego*/
+
+/*Start-game*/
+#game{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+#game .num-aleatorio{
+    position: relative;
+    height: 20%;
+    color: #fff;
+}
+.num-oculto{
+    position: absolute;
+    display: flex;
+    top: calc(50% - (85% / 2));
+    left: calc(50% - (12% / 2));
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    height: 85%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+.num-aleatorio .cronometro{
+    background: #d10f0f;
+    font-size: 2em;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+}
+.num-front{
+    font-size: 4em;
+    transform: rotateY(0deg);
+    background: #000;
+    color: #fff;
+}
+.num-back{
+    transform: rotateY(180deg);
+    background: #fff;
+    color: #000;
+    font-size: 1.6em;
+}
+@keyframes mostrarFront {
+    0%{transform: rotateY(0deg);}
+    100%{transform: rotateY(180deg);}
+}
+@keyframes mostrarBack {
+    0%{transform: rotateY(180deg);}
+    100%{transform: rotateY(360deg);}
+}
+
+#game .num-input{
+    height: 50%;
+}
+.num-input #form-number{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #0003;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.num-input #form-number input{
+    width: 30%;
+}
+.num-input #form-number #number-user{
+    font-size: 4em;
+    text-align: center;
+    height: 50%;
+}
+.num-input #form-number #submit-number{
+    width: 20%;
+    font-size: 2em;
+}
+.num-input #form-number span{
+    position: absolute;
+    font-size: 2em;
+    background: #000;
+    padding: 5px 2px;
+    color: #fff;
+    bottom: 10px;
+    right: 10px;
+}
+.num-alert{
+    margin: 0 10px;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+.play-again{
+    position:absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.play-again .btn-again{
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 5px;
+}
+.play-again .btn-again:hover,.num-input #form-number #submit-number:hover{
+    background: #000;
+    color: #fff;
+}
+/*End-game*/
